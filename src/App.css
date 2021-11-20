@@ -1,11 +1,14 @@
 body {
   background-color: aliceblue;
+  font-family: sans-serif;
+  margin: 0;
+  
 }
-.card-flexbox {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.card-grid {
+  display: grid;
   align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
 }
 
 .flashcard {
@@ -15,33 +18,98 @@ body {
   box-shadow: 0 0px 2px 2px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   background-color: white;
-  height: 150px;
-  width: 150px;
-  margin: 10px;
-  font-size: 30px;
+  height: 250px;
   cursor: pointer;
   position: relative;
   /* css variable */
   transition: 150ms ease all;
-  transform: perspective(1000px) rotateX(var(--rotate-x, 0));
-  /* transform-style: preserve-3d; */
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0));
 }
 
 .flashcard:hover {
   box-shadow: 0 0px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-
 .flashcard .front,
 .flashcard .back {
   position: absolute;
-  padding: 10px;
+  padding: 20px;
 }
 
 .flashcard .back {
-  transform: rotateX(-180deg)
+  transform: rotateY(-180deg);
 }
 
 .flashcard.flip {
-  --rotate-x: 180deg;
+  --rotate-y: 180deg;
+}
+
+.flashcard-options {
+  margin-top: .5rem;
+}
+
+.flashcard-option {
+  margin-top: .25rem;
+  color: #555;
+  font-size: .75rem;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #F58840;
+  box-shadow: 0 0px 2px 2px rgba(0, 0, 0, 0.8);
+  padding: 10px;
+}
+
+.form-group {
+  margin: .5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group > label {
+  margin-bottom: .25rem;
+  font-size: 1rem;
+}
+
+.container {
+  font-family: 'Mukta', sans-serif;
+  margin: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: aliceblue;
+  border: none;
+  box-shadow: 0 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  cursor: pointer;
+  transition: 300ms ease all;
+}
+
+.btn:hover {
+  box-shadow: 0 0px 2px 2px rgba(0, 0, 0, 0.5);
+  background-color: aqua;
+
+}
+
+.flex-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+#category {
+ padding: 10px;
+ cursor: pointer; 
+}
+
+.title {
+  margin: 1rem 0 0 0;
+  font-family: 'Zen Kurenaido', sans-serif;
 }
